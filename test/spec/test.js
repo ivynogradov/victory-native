@@ -46,7 +46,7 @@ const components = [
 describe("Default render", () => {
   components.forEach((c) => {
     it(`should work for ${c.name}`, () => {
-      const wrapper = enzyme.shallow(React.createElement(c.component));
+      const wrapper = enzyme.shallow(<c.component />);
       expect(wrapper).to.have.length(1);
     });
   });

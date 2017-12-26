@@ -132,15 +132,6 @@ export default class Demo extends Component {
     setInterval(this.updateDemoData.bind(this), 3000);
   }
 
-  getYFunction() {
-    const n = random(2, 7);
-    return (data) => Math.exp(-n * data.x) * Math.sin(2 * n * Math.PI * data.x);
-  }
-
-  generateRandomData(points = 6) {
-    return range(1, points + 1).map((i) => ({ x: i, y: i + random(-1, 2) }));
-  }
-
   getData() {
     return range(1, 10).map((i) => ({ x: i, y: random(1, 10) }));
   }
@@ -166,8 +157,17 @@ export default class Demo extends Component {
     });
   }
 
+  getYFunction() {
+    const n = random(2, 7);
+    return (data) => Math.exp(-n * data.x) * Math.sin(2 * n * Math.PI * data.x);
+  }
+
   changeScroll(scrollEnabled) {
     this.setState({ scrollEnabled });
+  }
+
+  generateRandomData(points = 6) {
+    return range(1, points + 1).map((i) => ({ x: i, y: i + random(-1, 2) }));
   }
 
   updateDemoData() {
